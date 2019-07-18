@@ -222,7 +222,7 @@ class Uglifier
 
   def error_message(result)
     result['error']['message'] +
-      if result['error']['message'].start_with?("Unexpected token") && !harmony?
+      if !harmony? && result['error']['message'].start_with?("Unexpected token")
         ". To use ES6 syntax, harmony mode must be enabled with " \
         "Uglifier.new(:harmony => true)."
       else
